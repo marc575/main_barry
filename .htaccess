@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteRule ^(/home/user/public_html)?$ public [L]
+RewriteRule ^templates/.*$ public [L]
+RewriteRule ^config/.*$ public [L]
+RewriteRule ^bin/.*$ public [L]
+RewriteRule ^migrations/.*$ public [L]
+RewriteRule ^src/.*$ public [L]
+RewriteRule ^tests/.*$ public [L]
+RewriteRule ^translations/.*$ public [L]
+RewriteRule ^var/.*$ public [L]
+RewriteRule ^vendor/.*$ public [L]
+<FilesMatch "\.(env|env\.test|gitignore|json|lock|dist|md)$">
+   Deny from all
+</FilesMatch>
