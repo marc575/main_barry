@@ -1,0 +1,38 @@
+{% extends 'security/login.html.twig' %}
+
+{% block title %} Coupons B5511 - Nouvel Admin {% endblock %}
+{% block body %}
+    <h6 class="font-weight-light">Ajouter un nouvel administrateur !</h6>
+    <form class="pt-3" method="post" id="form">
+        {% if error is not null %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        {% if success is not null %}
+            <div class="alert alert-primary">{{ success }}</div>
+        {% endif %}
+        <div class="form-group">
+            <label for="exampleInputUsername1">Nom</label>
+            <input type="text" required class="form-control" name="name" id="name" placeholder="Entrer votre nom...">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Adresse Email</label>
+            <input type="email" class="form-control" required name="email" id="email" placeholder="exemple@gmail.com...">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Mot de passe</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="mot de passe...">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Confirmer le mot de passe</label>
+            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirmer le mot de passe...">
+        </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <button type="submit" class="btn btn-primary mr-2" id="btnRegister">Enregistrer</button>
+        <br><br><br>
+        <div class="mb-2">
+            <button type="button" class="btn btn-block btn-facebook auth-form-btn">
+                <a href="{{ path('index') }}" style="color:white;">Tableau de bord</a>
+            </button>
+        </div>
+    </form>
+{% endblock %}

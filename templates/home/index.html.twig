@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coupons B5511 - Admins {% endblock %}
+{% block body %}
+    {% if(app.user.roles == ["ROLE_ADMIN"]) %}
+    <div class="row">
+        <div class="col-md-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title">Liste des administrateurs</p>
+                    <div class="table-responsive">
+                        <table id="recent-purchases-listing" class="table">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Email</th>
+                                <th>Nom</th>
+                                <th>Date d'insertion</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for admin in users %}
+                                <tr>
+                                    <td>{{ admin.id }}</td>
+                                    <td>{{ admin.email }}</td>
+                                    <td>{{ admin.name | capitalize }}</td>
+                                    <td>{{ admin.createdAt | date('H:i:s d/m/Y')}}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+

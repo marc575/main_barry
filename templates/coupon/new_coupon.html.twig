@@ -1,0 +1,50 @@
+{% extends 'security/login.html.twig' %}
+
+{% block title %} Coupons B5511 - Nouveau Coupon {% endblock %}
+{% block body %}
+    <h6 class="font-weight-light">Ajouter un nouveau coupon !</h6>
+    <form class="pt-3" method="post" id="formGood" enctype="multipart/form-data">
+        {% if error is not null %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        {% if success is not null %}
+            <div class="alert alert-primary">{{ success }}</div>
+        {% endif %}
+        <div class="form-group">
+            <label for="exampleInputUsername1">Auteur</label>
+            <input type="text" required class="form-control" name="auteur" id="auteur" placeholder="Auteur...">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Bookmaker</label>
+            <input type="text" class="form-control" required name="bookmaker" id="bookmaker" placeholder="1xBet...">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Code du coupon</label>
+            <input type="text" class="form-control" id="code" name="code" placeholder="Code du coupon...">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Petit message..."></textarea>
+        </div>
+
+        <div class="form-group mb-4">
+            <label class="floating-label" for="images">Image</label>
+            <input type="file" multiple name="images[]" class="single-input" id="images">
+        </div>
+        <div class="section-top-border" id="galleryContainer" style="display: none;">
+            <h3>Images</h3>
+            <div class="row gallery-item" id="gallery">
+            </div>
+        </div>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <button type="submit" class="btn btn-primary mr-2" id="btnGood">Enregistrer</button>
+        <br><br><br>
+        <div class="mb-2">
+            <button type="button" class="btn btn-block btn-facebook auth-form-btn">
+                <a href="{{ path('index') }}" style="color:white;">Tableau de bord</a>
+            </button>
+        </div>
+    </form>
+{% endblock %}
+

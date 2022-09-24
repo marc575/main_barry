@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coupons B5511 - Users {% endblock %}
+{% block body %}
+        <div class="row">
+            <div class="col-md-12 stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">Liste des utilisateurs</p>
+                        <div class="table-responsive">
+                            <table id="recent-purchases-listing" class="table">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Email</th>
+                                    <th>Nom</th>
+                                    <th>Date d'inscription</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for email in emails %}
+                                    <tr>
+                                        <td>{{ email.id }}</td>
+                                        <td>{{ email.email }}</td>
+                                        <td>{{ email.name | capitalize }}</td>
+                                        <td>{{ email.createdAt | date('H:i:s d/m/Y')}}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+

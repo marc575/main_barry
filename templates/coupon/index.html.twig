@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coupons B5511 {% endblock %}
+{% block page %}Pronostiques{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title">Liste des Coupons</p>
+                    <div class="table-responsive">
+                        <table id="recent-purchases-listing" class="table">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Auteur</th>
+                                <th>Bookmaker</th>
+                                <th>Message</th>
+                                <th>Code du coupon</th>
+                                <th>Image</th>
+                                <th>Date d'insertion</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for coupon in coupons %}
+                                <tr>
+                                    <td>{{ coupon.id }}</td>
+                                    <td>{{ coupon.auteur }}</td>
+                                    <td>{{ coupon.bookmaker }}</td>
+                                    <td>{{ coupon.Message }}</td>
+                                    <td>{{ coupon.code }}</td>
+                                    {% for image in coupon.couponImage %}
+                                    <td><img src="uploads/images/{{ image.fileName }}" class="img-fluid"></td>
+                                    {% endfor %}
+                                    <td>{{ coupon.createdAt | date('H:i:s d/m/Y')}}</td>
+                                    <td><a href="{{ path('delete_coupon', {coupon: coupon.id}) }}">Supprimer</a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

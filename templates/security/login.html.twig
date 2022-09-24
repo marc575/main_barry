@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <meta name="author" content="Marc Tatchou">
+
+    <meta name="description" content="Code Promotionel B5511 ! ">
+    <meta property="og:site_name" content="BarrySport">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="{{ asset('asset/images/logo9.png') }}">
+    <meta name="twitter:title" property="og:title" itemprop="name" content="Barrysport - Nous proposons un code promotionnel unique pour 4 bookmakers">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Notre code promotionnel * B5511 * vous recevrez une multitude de bonus après inscriptions sur 1xbet, betWinner, LineBet, 1Win, Melbet.">
+
+    <title> {% block title %}Coupons B5511 - Authentification{% endblock %}</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('asset/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/vendors/base/vendor.bundle.base.css') }}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{ asset('asset/images/logo9.png') }}" />
+</head>
+
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div class="row w-100 mx-0">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                        <div class="brand-logo" align="center">
+                            <img src="{{ asset('asset/images/logo9.png') }}" alt="logo">
+                        </div>
+                        <h4>Code Promo Bonus B5511</h4>
+                        {% block body %}
+                            <h6 class="font-weight-light">Saisir vos paramètres pour continuer !</h6>
+                            <form class="pt-3" method="post">
+                                {% if error %}
+                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="Entrer votre email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg" id="password" name="password" required placeholder="Entrer votre mot de passe"><br>
+                                    <a href="{{ path('forget_password') }}" class="auth-link text-black"><i class="fa fa-question-circle"></i><b>Mot de passe oublié?</b></a>
+                                </div>
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" name="_csrf_token" value="{{ csrf_token('authenticate') }}">Se Connecter</button>
+                                </div>
+                            </form>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+{% block javascripts %} {% endblock %}
+<script src="{{ asset('asset/vendors/base/vendor.bundle.base.js') }}"></script>
+<!-- endinject -->
+<!-- inject:js -->
+<script src="{{ asset('asset/js/off-canvas.js') }}"></script>
+<script src="{{ asset('asset/js/hoverable-collapse.js') }}"></script>
+<script src="{{ asset('asset/js/template.js') }}"></script>
+<!-- endinject -->
+</body>
+
+</html>
