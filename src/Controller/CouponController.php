@@ -87,7 +87,7 @@ class CouponController extends AbstractController
             $emails = $em->getRepository(Emails::class)->findAll();
             foreach ($emails as $user) {
                 $_message = (new \Swift_Message("Nouveau coupon disponible"))
-                    ->setFrom('barrypronos225@main.barrysport.com')
+                    ->setFrom('barrypronos225@main.1-xb-et.com')
                     ->setTo($user->getEmail())
                     ->setBody(
                         $this->renderView(
