@@ -174,14 +174,13 @@ class SecurityController extends AbstractController
             $password = $this->generateRandomPassword() . $user->getId();
             $user->setPassword($encoder->encodePassword($user, $password));
 
-            $url = $this->generateUrl("login");
             $_message = (new \Swift_Message("Nouveau mot de passe"))
-                ->setFrom('barrypronos225@main.barrysport.com')
+                ->setFrom('barrypronos225@main.1-xb-et.com')
                 ->setTo($user->getEmail())
                 ->setBody(
                     $this->renderView(
                         'security/set_password.html.twig',
-                        compact("user", "url", "password")
+                        compact("user", "password")
                     ),
                     'text/html'
                 );
