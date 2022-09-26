@@ -83,7 +83,6 @@ class CouponController extends AbstractController
             $em->persist($coupon);
             $em->flush();
 
-            $url = $this->generateUrl("index");
             $emails = $em->getRepository(Emails::class)->findAll();
             foreach ($emails as $user) {
                 $_message = (new \Swift_Message("Nouveau coupon disponible"))
@@ -91,7 +90,7 @@ class CouponController extends AbstractController
                     ->setTo($user->getEmail())
                     ->setBody(
                         $this->renderView(
-                            'coupon/send_email.html.twig', compact('user', 'url', 'message', 'bookmaker')),
+                            'coupon/send_email.html.twig', compact('user', 'message', 'bookmaker')),
                         'text/html'
                     );
                 $mailer->send($_message);
